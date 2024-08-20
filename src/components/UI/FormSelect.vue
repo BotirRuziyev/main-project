@@ -52,7 +52,7 @@
                 <img
                   :src="person.avatar"
                   alt=""
-                  class="h-10 w-10 flex-shrink-0 rounded-full"
+                  class="h-10 w-10 rounded-full"
                 />
                 <span
                   :class="[
