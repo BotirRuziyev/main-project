@@ -1,0 +1,36 @@
+@import url("../fonts/Inter/stylesheet.css");
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../fonts/SFProText/SF-Pro-Text-Black.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-BlackItalic.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-Bold.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-BoldItalic.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-Heavy.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-HeavyItalic.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-Light.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-LightItalic.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-Medium.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-MediumItalic.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-Regular.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-RegularItalic.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-Semibold.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-SemiboldItalic.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-Thin.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-ThinItalic.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-Ultralight.otf") format("otf");
+  src: url("../fonts/SFProText/SF-Pro-Text-UltralightItalic.otf") format("otf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-family: "Inter", sans-serif;
+  --second-family: "SF Pro Text", sans-serif;
+}
+
+input[type=password] {
+  -webkit-text-security: square;
+}/*# sourceMappingURL=index.css.map */
