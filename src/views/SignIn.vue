@@ -24,7 +24,6 @@
           id="password"
           label="Пароль"
           placeholder="********"
-          value="********"
         />
         <router-link
           to="#"
@@ -74,6 +73,7 @@ import FormInput from "@/components/UI/FormInput.vue";
 .sign-in {
   background-image: url("@/assets/img/auth_bg.png");
   background-size: cover;
+  background-position: center;
   .sign-in__form {
     max-width: 558px;
     border-radius: 8px;
