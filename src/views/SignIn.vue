@@ -1,8 +1,10 @@
 <template>
   <div
-    class="sign-in bg-neutral-900 min-h-screen flex items-center justify-center"
+    class="sign-in bg-neutral-900 min-h-screen flex items-center justify-center p-5"
   >
-    <form class="sign-in__form py-14 px-20 h-auto w-full bg-neutral-800">
+    <form
+      class="sign-in__form sm:py-14 sm:px-20 p-5 h-auto w-full bg-neutral-800"
+    >
       <div
         class="title text-2xl text-neutral-200 text-center mb-10 font-semibold"
       >
@@ -18,10 +20,11 @@
       </div>
       <div class="form_control">
         <FormInput
-          type="password"
+          type="text"
           id="password"
           label="Пароль"
           placeholder="********"
+          value="********"
         />
         <router-link
           to="#"
@@ -75,7 +78,6 @@ import FormInput from "@/components/UI/FormInput.vue";
     max-width: 558px;
     border-radius: 8px;
     .title {
-      font-family: var(--font-family);
       letter-spacing: 0.01em;
       line-height: 29px;
     }
@@ -87,7 +89,6 @@ import FormInput from "@/components/UI/FormInput.vue";
         margin-bottom: 24px;
       }
       .forgot-your__password {
-        font-family: var(--font-family);
         letter-spacing: 0.01em;
         margin-top: 10px;
         line-height: 17px;
@@ -97,7 +98,7 @@ import FormInput from "@/components/UI/FormInput.vue";
       a {
         padding: 14px 16px;
         border-radius: 8px;
-        font-family: var(--font-family);
+
         font-size: 15px;
         letter-spacing: 0.01em;
         line-height: 18px;
@@ -115,7 +116,6 @@ import FormInput from "@/components/UI/FormInput.vue";
           background: #737373;
         }
         .login-via__head__text {
-          font-family: var(--font-family);
           line-height: 20px;
           letter-spacing: 0.01em;
         }
@@ -134,7 +134,6 @@ import FormInput from "@/components/UI/FormInput.vue";
       }
     }
     .cerate_accaunt {
-      font-family: var(--font-family);
       letter-spacing: 0.01em;
       line-height: 17px;
     }

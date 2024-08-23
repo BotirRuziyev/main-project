@@ -24,6 +24,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--font-family);
+  letter-spacing: 0.01em;
 }
 
 :root {
@@ -33,4 +35,13 @@
 
 input[type=password] {
   -webkit-text-security: square;
+}
+
+.hs-overlay-backdrop {
+  background-color: #171717;
+  opacity: 0.8;
+}
+
+.hs-overlay-backdrop.opacity-0 {
+  opacity: 0;
 }/*# sourceMappingURL=index.css.map */

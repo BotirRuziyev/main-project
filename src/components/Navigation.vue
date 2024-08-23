@@ -1,25 +1,37 @@
 <template>
-  <div>
+  <div v-if="$route.name != 'sign-in'">
     <!-- Sidebar -->
     <div
       id="hs-offcanvas-example"
-      class="sidebar hs-overlay [--auto-close:lg] hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 start-0 bottom-0 z-[60] lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 bg-neutral-800"
+      class="sidebar hs-overlay h-screen border-r border-neutral-700 [--auto-close:lg] hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden lg:sticky fixed top-0 start-0 bottom-0 z-[60] lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 bg-neutral-800"
       role="dialog"
       tabindex="-1"
       aria-label="Sidebar"
     >
       <nav
-        class="hs-accordion-group pt-6 px-5 pb-28 w-full h-full flex flex-col overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-neutral-700 [&::-webkit-scrollbar-thumb]:bg-neutral-500"
+        class="hs-accordion-group sm:pt-6 pt-5 px-5 pb-20 w-full h-full flex flex-col overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-track]:bg-neutral-700 [&::-webkit-scrollbar-thumb]:bg-neutral-500"
         data-hs-accordion-always-open
       >
-        <div class="logo text-lg text-neutral-200 font-medium mb-11">
+        <div class="close absolute -right-4 top-3 lg:hidden block">
+          <button
+            class="close_btn bg-neutral-800 border border-neutral-600 rounded p-1.5"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+            aria-controls="hs-offcanvas-example"
+            aria-label="Toggle navigation"
+            data-hs-overlay="#hs-offcanvas-example"
+          >
+            <img src="@/assets/img/icons/close.svg" alt="" />
+          </button>
+        </div>
+        <div class="logo text-lg text-neutral-200 font-medium sm:mb-11 mb-8">
           LOGOOOO
         </div>
         <ul>
           <li class="hs-accordion" id="users-accordion">
             <button
               type="button"
-              class="hs-accordion-toggle w-full py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+              class="hs-accordion-toggle w-full py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
               aria-expanded="true"
               aria-controls="users-accordion"
             >
@@ -147,15 +159,16 @@
               <ul class="">
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
-                    to="#"
+                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
+                    :class="$route.name == 'players' ? 'bg-neutral-700' : ''"
+                    to="/players"
                   >
                     Игроки
                   </router-link>
                 </li>
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Чат
@@ -163,7 +176,7 @@
                 </li>
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Проверки
@@ -171,7 +184,7 @@
                 </li>
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Репорты
@@ -179,7 +192,7 @@
                 </li>
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Рисунки
@@ -187,7 +200,7 @@
                 </li>
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Оповещения
@@ -195,7 +208,7 @@
                 </li>
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 text-start flex text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Блокировки
@@ -207,7 +220,7 @@
           <li class="hs-accordion" id="users-accordion">
             <button
               type="button"
-              class="hs-accordion-toggle w-full py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+              class="hs-accordion-toggle w-full py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
               aria-expanded="false"
               aria-controls="users-accordion"
             >
@@ -324,7 +337,7 @@
               <ul>
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Журнал аудита
@@ -332,7 +345,7 @@
                 </li>
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Интеграции
@@ -340,7 +353,7 @@
                 </li>
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Сервера
@@ -348,7 +361,7 @@
                 </li>
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Настройки 9+
@@ -360,7 +373,7 @@
           <li class="hs-accordion" id="users-accordion">
             <button
               type="button"
-              class="hs-accordion-toggle w-full py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+              class="hs-accordion-toggle w-full py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
               aria-expanded="false"
               aria-controls="users-accordion"
             >
@@ -419,7 +432,7 @@
               <ul class="">
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Настройки
@@ -427,7 +440,7 @@
                 </li>
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 mb-1.5 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Сотрудники
@@ -435,7 +448,7 @@
                 </li>
                 <li>
                   <router-link
-                    class="flex items-center py-2 px-3 text-start flex items-center text-sm text-neutral-300 rounded-lg bg-neutral-700 gap-2"
+                    class="flex items-center py-2 px-3 text-start flex items-center text-sm text-neutral-300 rounded-lg gap-2 duration-200 hover:bg-neutral-700"
                     to="#"
                   >
                     Платежи
@@ -457,8 +470,7 @@ import FormSelect from "./UI/FormSelect.vue";
 
 <style lang="scss" scoped>
 .sidebar {
-  max-width: 260px;
-  width: 100%;
+  width: 260px;
   .hs-accordion {
     .hs-accordion-toggle {
       font-family: var(--font-family);
@@ -467,6 +479,7 @@ import FormSelect from "./UI/FormSelect.vue";
     }
     .hs-accordion-content {
       position: relative;
+      margin-bottom: 0;
       &::after {
         content: "";
         height: 100%;
@@ -481,6 +494,14 @@ import FormSelect from "./UI/FormSelect.vue";
         line-height: 20px;
         letter-spacing: 0.01em;
       }
+    }
+  }
+  .hs-accordion.active {
+    .hs-accordion-toggle {
+      background-color: #404040;
+    }
+    .hs-accordion-content {
+      margin-bottom: 24px;
     }
   }
 }

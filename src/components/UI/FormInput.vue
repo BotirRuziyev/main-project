@@ -8,6 +8,7 @@
     <input
       :type="type"
       :id="id"
+      :value="value"
       class="bg-transparent w-full py-3.5 px-4 rounded-lg border border-neutral-500 text-neutral-200 font-medium duration-200 focus:outline-0 focus:border-neutral-300"
       :placeholder="placeholder"
     />
@@ -29,6 +30,10 @@ export default {
       typeof: String,
       default: "text",
     },
+    value: {
+      typeof: String,
+      default: "",
+    },
     placeholder: {
       typeof: String,
       default: "",
@@ -39,22 +44,18 @@ export default {
 <style lang="scss" scoped>
 .form-input {
   label {
-    font-family: var(--font-family);
     letter-spacing: 0.01em;
     line-height: 17px;
   }
   input {
-    font-family: var(--font-family);
     font-size: 15px;
-    letter-spacing: 0.01em;
     line-height: 18px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     &::placeholder {
-      font-family: var(--font-family);
       font-weight: 500;
       font-size: 15px;
       letter-spacing: 0.01em;
-      color: var(--neutral-200);
+      color: #737373;
     }
   }
 }
