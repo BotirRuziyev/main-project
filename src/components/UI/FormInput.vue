@@ -5,40 +5,45 @@
       class="block mb-2.5 text-sm text-neutral-200 font-semibold"
       >{{ label }}</label
     >
-    <input
+    <Field
       :type="type"
+      :name="id"
       :id="id"
-      :value="value"
+      @input="emitInputValue"
       class="bg-transparent w-full py-3.5 px-4 rounded-lg border border-neutral-500 text-neutral-200 font-medium duration-200 focus:outline-0 focus:border-neutral-300"
       :placeholder="placeholder"
     />
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    id: {
-      typeof: String,
-      default: "",
-    },
-    label: {
-      typeof: String,
-      default: "",
-    },
-    type: {
-      typeof: String,
-      default: "text",
-    },
-    value: {
-      typeof: String,
-      default: "",
-    },
-    placeholder: {
-      typeof: String,
-      default: "",
-    },
+<script setup>
+import { Field } from "vee-validate";
+
+const props = defineProps({
+  id: {
+    typeof: String,
+    default: "",
   },
+  label: {
+    typeof: String,
+    default: "",
+  },
+  type: {
+    typeof: String,
+    default: "text",
+  },
+  value: {
+    typeof: String,
+    default: "",
+  },
+  placeholder: {
+    typeof: String,
+    default: "",
+  },
+});
+const emit = defineEmits(["update:modelValue"]);
+const emitInputValue = (event) => {
+  emit("update:modelValue", event.target.value);
 };
 </script>
 <style lang="scss" scoped>

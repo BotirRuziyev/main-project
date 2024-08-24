@@ -2,41 +2,50 @@
   <div
     class="sign-in bg-neutral-900 min-h-screen flex items-center justify-center p-5"
   >
-    <form
+    <Form
       class="sign-in__form sm:py-14 sm:px-20 p-5 h-auto w-full bg-neutral-800"
+      v-slot="{ meta }"
+      :validation-schema="schema"
     >
       <div
         class="title text-2xl text-neutral-200 text-center mb-10 font-semibold"
       >
         Вход в аккаунт
       </div>
-      <div class="form_control">
+      <div class="form_control mb-8">
         <FormInput
           type="email"
           id="email"
           label="Почта"
           placeholder="gamer@mail.ru"
+          @update:modelValue="isRequiredEmail"
         />
       </div>
-      <div class="form_control">
+      <div class="form_control mb-6">
         <FormInput
           type="text"
           id="password"
           label="Пароль"
           placeholder="********"
+          v-model:update:modelValue="isRequiredPassword"
         />
         <router-link
           to="#"
-          class="forgot-your__password block text-base text-neutral-400 font-medium"
+          class="forgot-your__password block text-base text-neutral-400 font-medium mt-2.5"
           >Забыли пароль?</router-link
         >
       </div>
       <div class="sign-in__link mb-10">
-        <router-link
-          to="#"
-          class="w-full block bg-blue-600 text-neutral-200 font-semibold text-center"
-          >Войти</router-link
+        <button
+          class="w-full block font-semibold text-center p-3.5 rounded-lg"
+          :class="
+            isRequired
+              ? 'bg-blue-600 text-neutral-200'
+              : 'bg-neutral-500 text-neutral-400'
+          "
         >
+          Войти
+        </button>
       </div>
       <div class="login-via mb-6">
         <div class="login-via__head flex items-center">
@@ -63,11 +72,28 @@
           >Создать сейчас</router-link
         >
       </div>
-    </form>
+    </Form>
   </div>
 </template>
 <script setup>
+import { Form, ErrorMessage } from "vee-validate";
+import * as Yup from "yup";
+import { ref } from "vue";
 import FormInput from "@/components/UI/FormInput.vue";
+const isRequired = ref(true);
+// const schema = yup.object({
+//   email: yup.string().required().email(),
+//   password: yup.string().required().min(10),
+// });
+const schema = Yup.object().shape({
+  email: Yup.string().email().required().label("Email Address"),
+  password: Yup.string().min(10).required().label("Your Password"),
+});
+const isRequiredEmail = (e) => {};
+const isRequiredPassword = (e) => {};
+function onSubmit(values) {
+  alert(JSON.stringify(values, null, 2));
+}
 </script>
 <style scoped lang="scss">
 .sign-in {
@@ -82,25 +108,14 @@ import FormInput from "@/components/UI/FormInput.vue";
       line-height: 29px;
     }
     .form_control {
-      &:nth-child(2) {
-        margin-bottom: 32px;
-      }
-      &:nth-child(3) {
-        margin-bottom: 24px;
-      }
       .forgot-your__password {
         letter-spacing: 0.01em;
-        margin-top: 10px;
         line-height: 17px;
       }
     }
     .sign-in__link {
-      a {
-        padding: 14px 16px;
-        border-radius: 8px;
-
+      button {
         font-size: 15px;
-        letter-spacing: 0.01em;
         line-height: 18px;
       }
     }
