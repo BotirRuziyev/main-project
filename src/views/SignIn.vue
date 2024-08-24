@@ -4,7 +4,6 @@
   >
     <Form
       class="sign-in__form sm:py-14 sm:px-20 p-5 h-auto w-full bg-neutral-800"
-      v-slot="{ meta }"
       :validation-schema="schema"
     >
       <div
@@ -81,10 +80,6 @@ import * as Yup from "yup";
 import { ref } from "vue";
 import FormInput from "@/components/UI/FormInput.vue";
 const isRequired = ref(true);
-// const schema = yup.object({
-//   email: yup.string().required().email(),
-//   password: yup.string().required().min(10),
-// });
 const schema = Yup.object().shape({
   email: Yup.string().email().required().label("Email Address"),
   password: Yup.string().min(10).required().label("Your Password"),
